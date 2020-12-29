@@ -48,7 +48,7 @@ def function2():
     #array value should be satart from 10 and end with 36 (both included)
     # Hint: dtype, reshape 
     
-    x = np.arange(1,28,dtype=np.float64).reshape((3,3,3))     #wrtie your code here
+    x = np.arange(10,37,dtype=np.float64).reshape((3,3,3))     #wrtie your code here
 
 
     return x
@@ -72,7 +72,7 @@ def function3():
     #extract those numbers from given array. those are must exist in 5,7 Table
     #example [35,70,105,..]
     a = np.arange(1, 100*10+1).reshape((100,10))
-    x = a[] #wrtie your code here
+    x = a[(a % 5 == 0) & (a % 7 == 0)] #wrtie your code here
     return x
     """
     Expected Output:
@@ -86,8 +86,8 @@ def function4():
     #Swap columns 1 and 2 in the array arr.
    
     arr = np.arange(9).reshape(3,3)
-  
-    return #wrtie your code here
+    arr[:,(0,1)] = arr[:,(1,0)]
+    return arr #wrtie your code here
     """
     Expected Output:
           array([[1, 0, 2],
@@ -99,7 +99,7 @@ def function4():
 def function5():
     #Create a null vector of size 20 with 4 rows and 5 columns with numpy function
    
-    z = #wrtie your code here
+    z = np.zeros(20, dtype = int).reshape(4,5) #wrtie your code here
   
     return z
     """
@@ -114,8 +114,9 @@ def function5():
 def function6():
     # Create a null vector of size 10 but the fifth and eighth value which is 10,20 respectively
    
-    arr = #wrtie your code here
-  
+    arr = np.zeros(10, dtype=int)
+    arr[4] = 10
+    arr[7] = 20 #wrtie your code here
     return arr
    
     
@@ -124,7 +125,7 @@ def function7():
     #  Create an array of zeros with the same shape and type as X. Dont use reshape method
     x = np.arange(4, dtype=np.int64)
   
-    return #write your code here
+    return np.zeros_like(x) #write your code here
 
     """
     Expected Output:
@@ -135,7 +136,7 @@ def function7():
 def function8():
     # Create a new array of 2x5 uints, filled with 6.
     
-    x = #write your code here
+    x = np.full((2,5), 6, np.uint32) #write your code here
   
     return x
 
@@ -149,7 +150,7 @@ def function8():
 def function9():
     # Create an array of 2, 4, 6, 8, ..., 100.
     
-    a = # write your code here
+    a = np.arange(2,101,2) # write your code here
   
     return a
 
@@ -167,7 +168,7 @@ def function10():
     
     arr = np.array([[3,3,3],[4,4,4],[5,5,5]])
     brr = np.array([1,2,3])
-    subt = # write your code here 
+    subt = arr - brr[:,None] # write your code here 
   
     return subt
 
@@ -184,7 +185,8 @@ def function11():
     # Replace all odd numbers in arr with -1 without changing arr.
     
     arr = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-    ans = #write your code here 
+    ans = np.where((arr % 2) == 1, -1, arr) #write your code here
+    print(arr)
   
     return ans
 
@@ -199,10 +201,9 @@ def function12():
     # HINT: use stacking concept
     
     arr = np.array([1,2,3])
-    ans = #write your code here 
+    ans = np.r_[np.repeat(arr,3),np.tile(arr,3)] #write your code here 
   
     return ans
-
      """
      Expected Output:
               array([1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3])
@@ -214,7 +215,7 @@ def function13():
     
     
     arr = np.array([2, 6, 1, 9, 10, 3, 27])
-    ans = #write your code here 
+    ans = arr[(arr>5) & (arr<10)] 
   
     return ans
 
