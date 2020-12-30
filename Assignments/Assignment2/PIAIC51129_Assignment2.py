@@ -230,8 +230,8 @@ def function14():
     # Hint use split method
     
     
-    arr = np.arange(10, 34, 1) #write reshape code
-    ans = #write your code here 
+    arr = np.arange(10, 34, 1).reshape(8,3) #write reshape code
+    ans = np.split(arr, 4) #write your code here 
   
     return ans
 
@@ -249,7 +249,7 @@ def function15():
     
     
     arr = np.array([[ 8,  2, -2],[-4,  1,  7],[ 6,  3,  9]])
-    ans = #write your code here 
+    ans = arr[np.argsort(arr[:,1])] #write your code here 
   
     return ans
 
@@ -267,7 +267,7 @@ def function16():
     
     x = np.array([[1], [2], [3]])
     y = np.array([[2], [3], [4]])
-    ans = #write your code here 
+    ans = np.dstack((x , y))#write your code here
   
     return ans
 
@@ -287,7 +287,7 @@ def function17():
     # otherwise it will be replaced with "NO"
     # Hint: np.where
     arr = np.arange(1,10*10+1).reshape((10,10))
-    return           # Write Your Code HERE
+    return arr % 3 == 0 & arr % 5 == 0           # Write Your Code HERE
 
 #Excpected Out
 """
@@ -309,7 +309,7 @@ def function18():
     # count values of "students" are exist in "piaic"
     piaic = np.arange(100)
     students = np.array([5,20,50,200,301,7001])
-    x = # Write you code Here
+    x = np.count_nonzero(np.intersect1d(piaic,students)) # Write you code Here
     return x
 
     #Expected output: 3
@@ -323,10 +323,10 @@ def function19():
     # then create variable "b" with value equal to 5
     # Now return output as "(X*W)+b:
 
-    X =   # Write your code here
-    W =   # Write your code here 
-    b =   # Write your code here
-    output =    # Write your code here
+    X =   np.arange(1,26).reshape(5,5) # Write your code here
+    W =   (np.copy(X)).transpose()# Write your code here 
+    b =   5 # Write your code here
+    output =  (X * W) + b  # Write your code here
     return output
     #expected output
     """
@@ -345,6 +345,6 @@ def function20():
     def abc(x):
         return x*2+3-2
 
-    return #Write your Code here
+    return abc(x) #Write your Code here
 #Expected Output: array([ 3,  5,  7,  9, 11, 13, 15, 17, 19, 21])
 #--------------------------X-----------------------------X-----------------------------X----------------------------X---------------------
